@@ -7,8 +7,8 @@
  * Note: Works with any number! (Not just positive integers!)
  */
 
-import java.util.Scanner;
 import java.text.DecimalFormat;
+import java.util.Scanner;
 
 public class EvenNumberOutputter
 {
@@ -34,42 +34,48 @@ public class EvenNumberOutputter
         }
         double min = (input - 1);
         double max = (input + 1);
-            for (; input > min && input < max; )
+        for (; input > min && input < max; )
+        {
+            double count = (input / 2);
+            if (count >= 0 && input > 0)
             {
-                double count = (input / 2);
-                if (count >= 0 && input > 0)
+                if (input != 1)
                 {
-                    if (input != 1)
-                    {
-                        {
-                            System.out.println(df.format(input));
-                            input = input - 2;
-
-
-                            min = min - 2;
-                            max = max - 2;
-                        }
-                    }
-                    else break;
-                }
-                else if (count <= 0 && input < 0)
-                {
-                    if (input != -1)
                     {
                         System.out.println(df.format(input));
-                        input = input + 2;
+                        input = input - 2;
 
-                        min = min + 2;
-                        max = max + 2;
+
+                        min = min - 2;
+                        max = max - 2;
                     }
-                    else break;
                 }
                 else
                 {
-                    System.out.println(0);
                     break;
                 }
             }
+            else if (count <= 0 && input < 0)
+            {
+                if (input != -1)
+                {
+                    System.out.println(df.format(input));
+                    input = input + 2;
+
+                    min = min + 2;
+                    max = max + 2;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            else
+            {
+                System.out.println(0);
+                break;
+            }
+        }
 //        else if (input < 0)
 //        {
 //            for (input = input; input > min && input < max; )
