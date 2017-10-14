@@ -12,14 +12,15 @@ public class EvenNumberOutputter
     public static void main(String[] args)
     {
         Scanner in = new Scanner(System.in);
-        double input = 10;
-        double min = Math.abs(input - 1);
-        double max = Math.abs(input + 1);
-        for (input = input; input > min && input < max; )
+        double input = -10;
+        double min = (input - 1);
+        double max = (input + 1);
+        if (input > 0)
         {
-            double count = Math.abs(input / 2);
-            if (input > 0)
+            for (input = input; input > min && input < max; )
             {
+                double count = (input / 2);
+
                 if (count >= 0)
                 {
                     System.out.println(input);
@@ -29,13 +30,22 @@ public class EvenNumberOutputter
                     min = min - 2;
                     max = max - 2;
                 }
+                else
+                {
+                    break;
+                }
+            }
+        }
 //                else
 //                {
 //                    break;
 //                }
-            }
-            else if (input < 0)
+        else if (input < 0)
+        {
+            for (input = input; input > min && input < max; )
             {
+                double count = (input /2);
+
                 if (count <= 0)
                 {
                     System.out.println(input);
@@ -44,11 +54,10 @@ public class EvenNumberOutputter
                     min = min + 2;
                     max = max + 2;
                 }
-            }
-            else
-            {
-                System.out.println(0.0);
-                break;
+                else
+                {
+                    break;
+                }
             }
         }
     }
